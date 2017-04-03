@@ -4,6 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+    Project: Assignment 3 - Playing With Generics
+    Class: CP220 - OOP II
+    Destription: LINQ
+    Name: Michael Dorfman
+    Date: 04/03/2017
+*/
+
 namespace CP220_LINQ
 {
     class Program
@@ -49,8 +57,14 @@ namespace CP220_LINQ
                 new {stID = 10, courseID = 4},
                 new {stID = 11, courseID = 2},
                 new {stID = 15, courseID = 5},
-                new {stID = 15, courseID = 4},
+                new {stID = 15, courseID = 4}
             };
+
+            //Quueries
+
+            //Outputs
+
+            Console.ReadKey();
 
         }
     }

@@ -60,73 +60,86 @@ namespace CP220_LINQ
                 new {stID = 15, courseID = 4}
             };
 
-            //Quueries
+            // Query #1 - a
+            var age25 = from a in students where a.Age >= 25 select a.LastName;
+
+            // Query #2 - s
+            var age20_30 = from b in students where b.Age > 20 && b.Age < 30 select b.LastName;
+
+            // Query #3 - c
+            var name_concat = from c in students let FullName = c.FirstName + " " + c.LastName select FullName + " " + c.Age;
+
+            // Query #4 - s & c
+            var join_st = (from d in students join c in studentcourses on d.stID equals c.stID where c.courseID == 3 select c.stID).Count();
+
+            // Query #5 - s & c
+            var join_sm = from e in students join c in studentcourses on e.stID equals c.stID  where c.courseID == 4 select e.FirstName;
+
+            // Query #6
+            var join_sg = from b in students
+                          join c in studentcourses on b.stID equals c.stID
+                          join bc in courses on c.courseID equals bc.courseID
+                          group b by bc.course into grouping
+                          select grouping;
+
+
 
             //Outputs
+
+            // Query 1
+            Console.WriteLine("25 And Older");
+            foreach(var a in age25)
+            {
+                Console.WriteLine("Student: " + a);
+            }
+
+            Console.WriteLine("");
+
+            // Query 2
+            Console.WriteLine("Between 25 and 30");
+            foreach(var b in age20_30)
+            {
+                Console.WriteLine("Student: " + b);
+            }
+
+            Console.WriteLine("");
+
+            // Query 3
+            Console.WriteLine("Full Name + Ages");
+            foreach(var c in name_concat)
+            {
+                Console.WriteLine(c);
+            }
+
+            Console.WriteLine("");
+
+            // Query 4
+            Console.WriteLine("English Students");
+            Console.WriteLine(join_st);
+
+            Console.WriteLine("");
+
+            // Query 5
+            Console.WriteLine("Math Students");
+            foreach(var e in join_sm)
+            {
+                Console.WriteLine("Student: " + e);
+            }
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Grouping");
+            foreach(var item in join_sg)
+            {
+                foreach(var oat in item)
+                {
+                    Console.WriteLine(oat.FirstName);
+                }
+            }
+
 
             Console.ReadKey();
 
         }
     }
-
-    class Course
-    {
-        //Fields
-        private int _courseID;
-        private string _courseName;
-
-        // Properties
-        public int CourseID
-        {
-            get
-            {
-                return _courseID;
-            }
-        }
-        public string CourseName
-        {
-            get
-            {
-                return _courseName;
-            }
-        }
-
-        //Constructor
-        public Course(int newCourseId, string newCourseName)
-        {
-            _courseID = newCourseId;
-            _courseName = newCourseName;
-        }
-    }
-    class StudentCourse
-    {
-        //Fields
-        private int _studentID;
-        private int _courseID;
-
-        //Properties
-        public int StudentID
-        {
-            get
-            {
-                return _studentID;
-            }
-        }
-        public int CourseID
-        {
-            get
-            {
-                return _courseID;
-            }
-        }
-
-        //Constructor
-        public StudentCourse(int newStudentID, int newCourseID)
-        {
-            _studentID = newStudentID;
-            _courseID = newCourseID;
-        }
-    }
-
-
 }

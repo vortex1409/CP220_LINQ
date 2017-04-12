@@ -18,6 +18,7 @@ namespace CP220_LINQ
     {
         static void Main(string[] args)
         {
+            // Anonymous Type (STUDENTS)
             var students = new[]
             {
                 new { stID = 1, LastName="McNaughton", FirstName="Donahue", Age = 22},
@@ -32,6 +33,7 @@ namespace CP220_LINQ
                 new { stID = 15, LastName="Remus", FirstName="James", Age = 21}
             };
 
+            // Anonymous Type (COURSES)
             var courses = new[]
             {
                 new {courseID = 1, course = "History"},
@@ -41,6 +43,7 @@ namespace CP220_LINQ
                 new {courseID = 5, course = "Programming"},
             };
 
+            // Anonymous Type (STUDENT COURSE DATA)
             var studentcourses = new[]
             {
                 new {stID = 1, courseID = 1},

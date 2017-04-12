@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /*
-    Project: Assignment 3 - Playing With Generics
+    Project: Assignment 3 - Playing with LINQ
     Class: CP220 - OOP II
     Destription: LINQ
     Name: Michael Dorfman
